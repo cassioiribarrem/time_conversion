@@ -40,13 +40,22 @@ class TestTimeConversion(TestCase):
         if result.day_or_night():
             return
 
-    def tests_day_or_night_output(self):
+    def tests_day_or_night_output_when_PM(self):
+        hour = '07:05:45PM'
+        result = Time_conversion(hour)
+        assert result.day_or_night() == '190545'
+
+    def tests_day_or_night_output_when_AM(self):
+        hour = '07:05:45AM'
+        result = Time_conversion(hour)
+        assert result.day_or_night() == '070545'
+
+    def test_day_or_night_output_when_12AM(self):
         hour = '12:05:45AM'
         result = Time_conversion(hour)
-        if 'P' in result.s:
-            assert result.day_or_night() == 190545
-        elif result.only_numbers()[0] == '1' and result.only_numbers()[1] == '2':
-            assert result.day_or_night() == '000545'
+        assert result.day_or_night() == '000545'
+
+
 
 
 
