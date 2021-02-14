@@ -13,7 +13,19 @@ class TestTimeConversion(TestCase):
         if result.day_or_night():
             return
 
-    def test_the_split_of_sentence(self):
+    def tests_if_exploding_exists(self):
+        if result.exploding():
+            return
+
+    def test_exploding_output(self):
+        assert result.exploding() == ['0','7',':','0','5',':','4','5','P','M']
+
+    def test_if_only_numbers_exist(self):
+        if result.only_numbers():
+            return
+
+    def test_only_numbers_output(self):
+        assert result.only_numbers() == ['0','7','0','5','4','5']
 
 hour = '07:05:45PM'
 result = Time_conversion(hour)
