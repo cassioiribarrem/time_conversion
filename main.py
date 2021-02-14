@@ -27,13 +27,18 @@ class Time_conversion():
     def day_or_night(self):
         if 'P' in self.s:
             hour = int(self.list_into_number())
-            military_time = str(hour + 120000)
+            if self.only_numbers()[0] == '1' and self.only_numbers()[1] == '2':
+                military_time = str(hour)
+            else:
+                military_time = str(hour + 120000)
             return military_time
 
         elif self.only_numbers()[0] == '1' and self.only_numbers()[1] == '2':
             hour = int(self.list_into_number())
             military_time = hour - 120000
-            military_time = '000' + str(military_time)
+            military_time = str(military_time)
+            zeros = 6 - len(military_time)
+            military_time = '0'*zeros + military_time
             return military_time
 
         else:
@@ -61,7 +66,8 @@ class Time_conversion():
 
     def conversion(self):
         conversion = self.list_into_string()
+        print(conversion)
         return conversion
 
-result = Time_conversion('07:05:45PM')
+result = Time_conversion('12:45:54PM')
 result.conversion()
