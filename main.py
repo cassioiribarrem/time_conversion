@@ -40,42 +40,28 @@ class Time_conversion():
             military_time = self.list_into_number()
             return military_time
 
+    def string_into_list(self):
+        list = []
+        for i in range(0, len(self.day_or_night())):
+            list.append(self.day_or_night()[i])
+        return list
 
+    def formatation(self):
+        list = []
+        list = self.string_into_list().copy()
+        list.insert(2, ':')
+        list.insert(5, ':')
+        return list
 
-""" hour = ''
-     if 'P' in self.s:
-         del(list[2])
-         del(list[4])
-         del(list[6])
-         del(list[6])
+    def list_into_string(self):
+        hour_in_military_time = ''
+        for i in range(0, len(self.formatation())):
+            hour_in_military_time += self.formatation()[i]
+        return hour_in_military_time
 
-         for i in range(0, len(list)):
-             hour += list[i]
+    def conversion(self):
+        conversion = self.list_into_string()
+        return conversion
 
-         list =[]
-         military_time = int(hour) + 120000
-
-         for i in range(0, len(str(military_time))):
-             list.append(str(military_time)[i])
-         list.insert(2,':')
-         list.insert(5,':')
-         hour = ''
-
-         for i in range(0, len(list)):
-             hour+= list[i]
-
-         if int(hour) == 24:
-
-
-     else:
-         del(list[8])
-         del(list[8])
-
-         hour = ''
-         for i in range(0, len(list)):
-             hour += list[i]
-
-     print(hour)"""
-
-result = Time_conversion('11:05:45AM')
-result.day_or_night()
+result = Time_conversion('07:05:45PM')
+result.conversion()

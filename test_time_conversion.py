@@ -55,7 +55,33 @@ class TestTimeConversion(TestCase):
         result = Time_conversion(hour)
         assert result.day_or_night() == '000545'
 
+    def tests_if_strings_into_list_exists(self):
+        if result.string_into_list():
+            return
 
+    def tests_strings_into_list_output(self):
+        assert result.string_into_list() == ['1', '9', '0', '5', '4', '5']
+
+    def test_formatation_existence(self):
+        if result.formatation():
+            return
+
+    def test_formatation_output(self):
+        assert result.formatation() == ['1', '9', ':', '0', '5', ':', '4', '5']
+
+    def test_list_into_string_existence(self):
+        if result.list_into_string():
+            return
+
+    def test_list_into_string_output(self):
+        assert result.list_into_string() == '19:05:45'
+
+    def test_if_conversion_exists(self):
+        if result.conversion():
+            return
+
+    def test_conversion_output(self):
+        assert result.conversion() == '19:05:45'
 
 
 
